@@ -89,7 +89,6 @@ export default function Home() {
               priority
               quality={100}
               unoptimized
-
             />
             <span>Zummo Textil</span>
           </a>
@@ -132,7 +131,6 @@ export default function Home() {
               <img
                 src="/zumo-egresados.jpg"
                 alt="Isotipo Zummo Textil"
-
               />
               <p>Camperas, buzos, chombas y gorras para egresados.</p>
             </div>
