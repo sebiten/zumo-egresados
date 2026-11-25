@@ -3,7 +3,7 @@
 import { useSyncExternalStore } from "react";
 
 const place = encodeURIComponent("Zummo Textil, Lerma 758, Salta, Argentina");
-const mapsUrl = `https://www.google.com/maps/search/?api=1&query=${place}`;
+const directionsUrl = `https://www.google.com/maps/dir/?api=1&destination=${place}`;
 const embedUrl = `https://www.google.com/maps?q=${place}&z=16&output=embed&hl=es`;
 
 function subscribeToConnection(onChange: () => void) {
@@ -52,12 +52,12 @@ export function LocationMap() {
         )}
         <a
           className="location__map-action"
-          href={mapsUrl}
+          href={directionsUrl}
           target="_blank"
           rel="noreferrer"
-          aria-label="Abrir la ubicación de Zummo Textil en Google Maps"
+          aria-label="Cómo llegar a Zummo Textil en Google Maps"
         >
-          Abrir en Google Maps <span aria-hidden="true">↗</span>
+          Cómo llegar <span aria-hidden="true">↗</span>
         </a>
       </div>
     </section>
