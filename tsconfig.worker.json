@@ -1,0 +1,12 @@
+{
+  "compilerOptions": {
+    "target": "ES2020",
+    "module": "none",
+    "lib": ["ES2020", "WebWorker"],
+    "types": [],
+    "strict": true,
+    "noEmitOnError": true,
+    "outFile": "public/sw.js"
+  },
+  "files": ["src/worker/catalog.ts"]
+}
