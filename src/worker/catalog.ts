@@ -1,9 +1,10 @@
 const worker = globalThis as unknown as ServiceWorkerGlobalScope;
 
 const cachePrefix = "zummo-catalog-";
-const cacheName = `${cachePrefix}v1`;
+const cacheName = `${cachePrefix}v2`;
 const home = "/";
 const logo = "/zumo-egresados.jpg";
+const catalogAsset = /^\/(?:_next\/static\/|icons\/|favicon\.ico$|zumo-egresados\.jpg$)/;
 
 async function cacheCatalog(response: Response) {
   if (!response.ok || !response.headers.get("content-type")?.includes("text/html")) {
@@ -12,8 +13,10 @@ async function cacheCatalog(response: Response) {
 
   const html = await response.clone().text();
   const assets = new Set([logo]);
-  for (const [, path] of html.matchAll(/(?:href|src)="(\/_next\/static\/[^"]+)"/g)) {
-    assets.add(path);
+  for (const [, path] of html.matchAll(/(?:href|src)="(\/[^"/][^"]*)"/g)) {
+    if (catalogAsset.test(new URL(path, worker.location.origin).pathname)) {
+      assets.add(path);
+    }
   }
 
   const cache = await caches.open(cacheName);
@@ -67,7 +70,7 @@ worker.addEventListener("fetch", (event) => {
     return;
   }
 
-  if (url.pathname.startsWith("/_next/static/") || url.pathname === logo) {
+  if (catalogAsset.test(url.pathname)) {
     event.respondWith(
       (async () => {
         const cache = await caches.open(cacheName);

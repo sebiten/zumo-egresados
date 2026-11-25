@@ -7,7 +7,6 @@ export const metadata: Metadata = {
   description:
     "Camperas, buzos, chombas, gorras y mucho mas para promociones. Zummo Textil, 20 anos de trayectoria y envios a todo el pais.",
   icons: {
-    icon: "/favicon.ico",
     apple: "/icons/apple-touch-icon.png",
   },
   appleWebApp: {

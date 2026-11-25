@@ -217,6 +217,7 @@ export default function Home() {
               alt="Logo de Zummo Textil"
               width={64}
               height={64}
+              unoptimized
             />
             <span>
               @zummoegresados
@@ -248,6 +249,7 @@ export default function Home() {
                     alt=""
                     width={54}
                     height={54}
+                    unoptimized
                   />
                   <span>{String(index + 1).padStart(2, "0")}</span>
                 </div>
