@@ -1,5 +1,6 @@
 import Image from "next/image";
 import { LeadForm } from "./components/LeadForm";
+import { LocationMap } from "./components/LocationMap";
 
 const products = [
   {
@@ -290,6 +291,8 @@ export default function Home() {
         <LeadForm />
       </section>
 
+      <LocationMap />
+
       <footer className="footer">
         <div className="footer__brand">
           <a className="brand brand--footer" href="#inicio">
@@ -320,6 +323,7 @@ export default function Home() {
             <a href="#instagram">Instagram</a>
             <a href="#proceso">Como comprar</a>
             <a href="#contacto">Contacto</a>
+            <a href="#ubicacion">Ubicación</a>
           </div>
 
           <div>
